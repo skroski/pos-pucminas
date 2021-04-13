@@ -1,0 +1,9 @@
+nav.menu-principal li         { color: black }
+header#h10 li.active          { color: blue }
+#h10 li                      { color: orange }
+#h10 ul li.active             { color: red }
+header#h10 > nav > ul > li    { color: green }
+
+main{display: flex;}
+article{border: 1px solid #eee; padding: 20px;}
+body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#555}
