@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários JavaScript</title>
+    <script>
+        onload = () => {
+            nome.submit = console.log('teste2');
+            nome.input = console.log('teste3');
+            nome.onkeydown = (e) => console.log(e.code);
+            nome.onchange = () => {
+                console.log(1, `Nome alterado para ${nome.value}`)
+            }
+            nome.onblur = () => {
+                if (nome.value == '') {
+                    nome_erro.innerHTML = '!'
+                    nome.style.backgroundColor = '#f88';
+                }
+                else {
+                    nome_erro.innerHTML = ''
+                    nome.style.backgroundColor = '#fff';
+                }
+                if (nome.value != '' && senha.value != '')
+                    button_submit.disabled = false;
+                else
+                    button_submit.disabled = true;
+
+            }
+            senha.onchange = () => { console.log(2, `Senha alterada para ${senha.value}`) }
+            senha.onblur = () => {
+                if (senha.value == '') {
+                    senha_erro.innerHTML = '!'
+                    senha.style.backgroundColor = '#f88';
+                }
+                else {
+                    senha_erro.innerHTML = ''
+                    senha.style.backgroundColor = '#fff';
+                }
+                if (nome.value != '' && senha.value != '')
+                    button_submit.disabled = false;
+                else
+                    button_submit.disabled = true;
+
+            }
+            login.onsubmit = () => {
+                if (nome.value == '' || senha.value == '') {
+                    alert('Os campos nome e senha são obrigatórios')
+                    return false;
+                }
+                else {
+                   mensagem.innerHTML = `Você está logado como ${nome.value}`;
+                   login.style.display = 'none';
+                   nome.value = '';
+                   senha.value = '';
+                }
+                return false;  
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Formulários JavaScript</h1>
+    <form action="login.html" id="login">
+        <p>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nomeUsuario" id="nome">
+            <span id="nome_erro"></span>
+        </p>
+        <p>
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha">
+            <span id="senha_erro"></span>
+        </p>
+        <p>
+            <label for="idade">Idade:</label>
+            <input type="range" min="18" max="60" name="idadeUsuario" id="idade">
+            </p>
+            <p>
+        <!--  
+            <label for="email">Email:</label>
+        <input type="email" name="emailUsuario" id="email">
+        </p>
+        <p>
+            <label for="date">Data:</label>
+        <input type="date" name="dateUsuario" id="date">
+        </p>
+       
+        <p>
+            <label for="hidden">Escondido</label>
+        <input type="hidden" name="hidden" id="hidden">
+        </p> -->
+        <p>
+            <button id="button_submit" disabled type="submit">Entrar</button>
+        </p>
+    </form>
+    <p id="mensagem">Você ainda não está logado</p>
+</body>
+
+</html>

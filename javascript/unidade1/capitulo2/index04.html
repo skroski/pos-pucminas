@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04 JS</title>
+    <script>
+        onload = () => { // window.onload
+            let button = document.getElementById('bt2')
+            //button.innerHTML = '<strong> Oi Mundão </strong>';
+            button.style.backgroundColor ="#d00d09";
+            button.style.color = 'white';
+            button.style.height = '4em';
+            button.style.width = '7em';
+          
+            button.onclick = () => {
+                // setTimeout(() => alert('Oi Mundo'));
+                // alert(button.nodeName + ' ' + button.nodeValue + ' ' + button.nodeType);
+                alert(button.firstChild.nodeValue);
+            };
+
+            let img = document.getElementById('f1');
+            alert(img.getAttribute('src'));
+        };
+
+    </script>
+</head>
+
+<body>
+    <button id="bt2" >Olá Mundo?</button>
+
+<p id="p1">
+    <img id="f1" href="foto.gif" width="150" src="foto.gif" alt="">
+</p>
+    
+</body>
+
+</html>

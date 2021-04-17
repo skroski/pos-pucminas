@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03 JS</title>
+    <script>
+        onload = () => { // window.onload
+            //bt.onclick = ola; // passando nome de uma function
+
+            bt2.onclick = () => {
+                setTimeout(() => alert('Hello World'), 2000);
+            };
+        };
+        function ola() {
+            alert('Olá Js agora')
+        }
+
+        function confirma() {
+
+            let confirma = confirm("Confirma a operação?")
+            if (confirma) {
+                alert('Confirmado')
+            } else {
+                alert('Cancelado.')
+            }
+        }
+
+        function entrou() {
+            alert('Entrou')
+        }
+        function saiu() {
+            alert('Saiu')
+        }
+
+    </script>
+</head>
+
+<body>
+    <p><button onclick="confirma()">Confirmar Operação</button></p>
+    <p onmouseover="entrou()" onmouseout="saiu()">Teste de Mouses</p>
+    <button id="bt2">Olá Mundo?</button>
+</body>
+
+</html>
