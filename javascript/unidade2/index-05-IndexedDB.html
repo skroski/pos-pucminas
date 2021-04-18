@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB JavaScript</title>
+    <script>
+        let bd;
+        let reqBD = indexedDB.open('meuDB', 1);
+        reqBD.onsuccess = () => {
+            bd = reqBD.result;
+        }
+
+        reqBD.onerror = () => {
+            console.log(reqBD.error)
+        }
+        reqBD.onupgradeneeded = (e) => {
+            bd = reqBD.result;
+            if (!bd.objectStoreNames.contains('livros'));
+            let livrosOS = bd.createObjectStore('livros', { keyPath: 'id' });
+            livrosOS.createIndex('tituloIDX', 'titulo', { unique: false });
+            livrosOS.createIndex('autorIDX', 'autor', { unique: false });
+        };
+        onload = () => {
+            btnC.onclick = () => {
+                let livro = {
+                    id: +idLivro.value,
+                    titulo: titulo.value,
+                    autor: autor.value,
+                };
+                console.log(livro);
+
+                let transacaoBD = bd.transaction(['livros'], 'readwrite');
+                let livrosOS = transacaoBD.objectStore('livros');
+                let reqOS = livrosOS.add(livro);
+                reqOS.onsuccess = (e) => {
+                    console.log(reqOS.result);
+                }
+                reqOS.onerror = (e) => {
+                    console.log(reqOS.error)
+                }
+                console.log(livro)
+            }
+            btnR.onclick = () => {
+                idLivro.value;
+                bd.transaction('livros')
+                    .objectStore('livros')
+                    .get(+idLivro.value)
+                    .onsuccess = (e) => {
+                        titulo.value = e.target.result.titulo;
+                        autor.value = e.target.result.autor;
+                    }
+
+            }
+
+            btnU.onclick = () => {
+                let livro = {
+                    id: +idLivro.value,
+                    titulo: titulo.value,
+                    autor: autor.value,
+                };
+                bd
+                    .transaction(['livros'], 'readwrite')
+                    .objectStore('livros')
+                    .put(livro)
+                    .onsuccess = (e) => {
+                        console.log('Livro Atualizado com Sucesso')
+                    }
+
+            }
+            btnD.onclick = () => {
+                idLivro.value;
+                bd
+                    .transaction(['livros'], 'readwrite')
+                    .objectStore('livros')
+                    .delete(+idLivro.value)
+                    .onsuccess = (e) => {
+                        console.log('Livro excluído com sucesso.')
+                    }
+
+            }
+
+            btnL.onclick = () => {
+                bd
+                    .transaction('livros')
+                    .objectStore('livros')
+                    .getAll(IDBKeyRange.bound(2, 5))
+                    .onsuccess = (e) => {
+                        console.log(e.target.result)
+                    }
+            }
+            btnL2.onclick = () => {
+                bd
+                    .transaction('livros')
+                    .objectStore('livros')
+                    .openCursor(IDBKeyRange.upperBound(3))
+                    .onsuccess = (e) => {
+                        let cursor = e.target.result;
+                        if (cursor) {
+                            console.log(cursor.value);
+                            cursor.continue();
+                        } else {
+                            console.log('Fim')
+                        }
+                    }
+            }
+            btnRT.onclick = () => {
+                bd
+                    .transaction('livros')
+                    .objectStore('livros')
+                    .index('tituloIDX')
+                    .get(titulo.value)
+                    .onsuccess = (e) => {
+                        idLivro.value = e.target.result.id;
+                        titulo.value = e.target.result.titulo;
+                        autor.value = e.target.result.autor;
+                    }
+            }
+            btnLA.onclick = () => {
+              bd
+                  .transaction('livros')
+                  .objectStore('livros')
+                  .index('autorIDX')
+                  //.getAll(IDBKeyRange.only(autor.value))
+                  .getAll(IDBKeyRange.upperBound(autor.value))
+                  .onsuccess = (e) => {
+                      let cursor = e.target.result;
+                      console.log(e.target.result)
+                  }
+          }
+        };
+    </script>
+</head>
+
+<body>
+    <h1>IndexedDB Javascript</h1>
+    <p><label for="idLivro">ID:</label><br>
+        <input type="number" id="idLivro">
+    </p>
+    <p><label for="titulo">Título Livro:</label> <br>
+        <input type="text" id="titulo">
+    </p>
+    <p><label for="autor">Autor:</label><br>
+        <input type="text" id="autor">
+    </p>
+    <p><button id="btnC">Create</button>
+        <button id="btnR">Read</button>
+        <button id="btnU">Update</button>
+        <button id="btnD">Delete</button>
+        <button id="btnL">Listagem</button>
+        <button id="btnL2">Listagem 2</button>
+        <button id="btnRT">Listagem por Titulo</button>
+        <button id="btnLA">Listagem por Autor</button>
+    </p>
+    <p id="output">Resultado do Banco de Dados</p>
+</body>
+
+</html>
