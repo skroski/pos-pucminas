@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios sobre Json</title>
+    <script>
+        let usuario = {
+            nome: 'João',
+            idade: 35,
+            filhos: [
+                {
+                    nome: 'Ana',
+                    idade: 13,
+                },
+                {
+                    nome: 'Pedro',
+                    idade: 10,
+                },
+                
+            ],
+            casado: true,
+        }
+        //Transforma o objeto em string
+        let strUsuario = JSON.stringify(usuario);
+        console.log(1, usuario, typeof usuario);
+        console.log(2, strUsuario, typeof strUsuario);
+        // Verifica a sintaxe de uma string e transforma em objeto
+        let usuario2 = JSON.parse(strUsuario);
+        console.log(3, usuario2, typeof usuario);
+        localStorage.setItem("usuario", JSON.stringify(usuario));
+
+        let strUsuario3 = localStorage.getItem('usuario');
+        console.log(4, strUsuario3, typeof strUsuario3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

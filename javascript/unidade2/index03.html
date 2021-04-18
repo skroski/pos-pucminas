@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Json - Parte 2</title>
+    <script>
+        function ajax() {
+            try {
+                let xhttp = new XMLHttpRequest;
+                xhttp.onreadystatechange = function () {
+                    console.warn('status: ' + xhttp.status);
+                    if (xhttp.readyState == 4) {
+
+                        let objeto = JSON.parse(xhttp.responseText);
+                        console.log(objeto);
+                        /* if (xhttp.status == 200) {
+                            resposta.innerHTML = objeto.data.first_name+" "+
+                            objeto.data.last_name+"<br/>" +
+                            objeto.data.email;
+                            resposta.innerHTML = objeto.data.map(
+                                (e)=> e.email
+                            ).join("<br/>" ); 
+                        */
+                    } 
+                }
+                let usuario = {
+                    first_name: nome.value,
+                    email: email.value,
+                }
+                xhttp.open('POST', 'https://reqres.in/api/users', true);
+                xhttp.send(JSON.stringify(usuario));
+
+            } catch (erro) {
+                console.log('Erro');
+                alert("Erro na comunicação com o servidor.");
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+<h1>Javascript JSON</h1>
+
+<p><button onclick="ajax()">Carrega dados</button></p>
+<form action="">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome"> <br>
+    <label for="email">Email:</label>
+    <input type="text" id="email">
+</form>
+<p id="resposta" style="border: thin solid black; padding: 25px;"></p>
+<!-- 
+    <dl>
+    <dt>Nome:</dt>
+    <dd id="nome"></dd>
+    <dt>Idade:</dt>
+    <dd id="idade"></dd>
+    <dt>Filhos:</dt>
+    <dd id="filhos"></dd>
+
+</dl> -->
+
+</html>
