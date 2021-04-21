@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files API</title>
+    <script>
+        onload = () => {
+            arquivos.onchange = () => {
+                arqs.innerHTML += Array.from(arquivos.files)
+                .map((f)=>f.name)
+                .join('<br>')
+               
+                
+            };
+            btnArquivos.onclick = () => {
+                arquivos.click();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Files API</h1>
+    <input id="arquivos" multiple type="file" style="display: none" accept="image/*">
+    <button id="btnArquivos" type="text">
+        Escolher Arquivos
+    </button>
+    <p id="arqs"></p>
+</body>
+</html>

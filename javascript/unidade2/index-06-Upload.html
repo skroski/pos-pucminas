@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Files API</title>
+    <script>
+        onload = () => {
+            arquivo.onchange = () => {
+                let fr = new FileReader();
+                fr.readAsDataURL(arquivo.files[0]);
+                fr.onload = (e) => {
+                  output.innerHTML = `<img src="${e.target.result}" />`;
+                }
+
+            };
+            btnArquivo.onclick = () => {
+                arquivo.click();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Files API</h1>
+    <input id="arquivo" type="file" style="display: none" accept="image/png">
+    <button id="btnArquivo" type="text">
+        Escolher arquivo
+    </button>
+    <p id="output"></p>
+</body>
+</html>

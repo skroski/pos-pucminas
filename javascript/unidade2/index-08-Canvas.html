@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas JavaScript</title>
+    <style>
+        #desenho{
+            border:2px solid #333;
+        }
+    </style>
+    <script>
+        onload = () => {
+            if(desenho.getContext){
+                let ctx = desenho.getContext('2d');
+                /* ctx.fillRect(25, 25, 100, 100);
+                ctx.clearRect(45,45,60,60);
+                ctx.strokeRect(50,50,50,50) */
+
+                /* ctx.beginPath();
+                ctx.moveTo(75,50);
+                ctx.lineTo(100, 75);
+                ctx.lineTo(100, 25);
+                ctx.fill(); */
+
+                ctx.lineWidth = 4;
+                ctx.strokeStyle = 'black';
+                ctx.fillStyle = 'red';
+                ctx.beginPath();
+                ctx.arc(75, 75, 50, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.stroke();
+                
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Canvas JavaScript</h1>
+    <canvas id="desenho" width="500" height="150">
+        Seu navegador não suporta Canvas.
+    </canvas>
+    
+</body>
+</html>
