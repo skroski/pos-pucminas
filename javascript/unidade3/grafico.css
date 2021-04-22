@@ -1,0 +1,15 @@
+#grafico {
+    width: 600px;
+    height: 400px;
+    border: 1px solid black;
+}
+
+.barra {
+    fill: lightblue;
+    stroke: black;
+}
+.rotulo {
+    text-anchor: end;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}

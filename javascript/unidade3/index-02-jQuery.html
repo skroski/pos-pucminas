@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .alerta{color:rgb(255, 255, 255); background-color: rgb(185, 18, 18);}
+        
+    </style>
+    <title>Jquery . Aulas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+         $(document).ready(function(){
+             // $('div p').html('<strong>Novo</strong> Parágrafo');
+             // console.log($('div p').attr('id', 'P4'));
+             // $('div p').attr({'data-altura': 10, 'data-peso':90});
+             // $('div p').css({color:'white', 'background-color': 'red'});
+             // console.log($('p').length);
+             // $('div p').addClass('alerta');
+             //$('#btn').click(() => {
+                 // $('div p').removeClass('alerta');
+                 // $('div p').addClass('alerta');
+                 //$('div p').toggleClass('alerta')
+                 
+             //})
+             //$('p').hover(function() {
+                 //$(this).toggleClass('alerta');
+             //});
+             //$('p').on('logou',function(e, data) {
+                 //$(this).toggleClass('alerta');
+                 //console.log(e);
+                 //console.log('Logou como ' + data.usuario)
+             //});
+             //$('#btn').click( function (e) {
+                 //e.stopPropagation();
+                 //$('#p1').off('click');
+             //})
+             //$('#btn').click( function (e) {
+                 //e.stopPropagation();
+                 //$('#p1').trigger('logou', {usuario: 'Skroski'} );
+             //})
+             //$('div p').filter(':even').addClass('alerta');
+             //$('div p').eq(2).addClass('alerta');
+             //$('div p').has('strong').addClass('alerta');
+             //$('div p').last().addClass('alerta');
+           
+              let listaIds =  $('p')
+              .map(function () {return $(this).attr('id');})
+              .get();
+              console.table(listaIds);
+              
+            });
+        
+    </script>
+
+</head>
+<body>
+    <h1>jQuery - JavaScript</h1>
+    <p><button id="btn">Clique Aqui</button></p>
+   
+   <div>
+        <p id="p1">Primeiro Parágrafo</p>
+        <p id="p2">Segundo Parágrafo</p>
+        <p id="p3">Terceiro Parágrafo</p>
+        <p id="p4"> <strong>Quarto</strong>  Parágrafo</p>
+        <p id="p5">Quinto Parágrafo</p>
+    </div>
+    
+</body>
+</html>

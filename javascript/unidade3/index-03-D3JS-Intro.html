@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #grafico div {
+            background-color: lightblue;
+            padding: 5px;
+            margin-bottom: 5px;
+            text-align: right;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+        onload = () => {
+            //d3.selectAll('p').style('background-color', 'red');
+            //d3.select('#destaque')
+            //.style('font-size', 'large')
+            //.style('font-weight', 'bold')
+
+            //d3.selectAll('div').style('background-color', 'lightblue')
+            //.append('p')
+            //.html('Exemplo de Append')
+
+            //let ps = d3.selectAll('p').data([30,20,10])
+            //ps.sort((a,b) => b - a);
+            //document.querySelectorAll('p').forEach((p) => console.log(p.__data__))
+            //console.log(d3.selectAll('div'))
+            let divs = d3
+                .select('#grafico')
+                .selectAll('div')
+                .data([10, 20, 30, 40, 50])
+                .text((d) => d)
+                .style('width', (d) => d * 10 + 'px')
+
+            divs
+                .enter()
+                .append('div')
+                .text((d) => d)
+                .style('width', (d) => d * 10 + 'px');
+
+        }
+    </script>
+    <title>D3JS . JavaScript</title>
+</head>
+
+<body>
+    <h1>D3JS - JavaScript</h1>
+    <p id="destaque">Parágrafo em Destaque</p>
+    <p>Segundo Parágrafo</p>
+    <p>Terceiro Parágrafo</p>
+    <div id="grafico"></div>
+</body>
+
+</html>
