@@ -1,15 +1,39 @@
 #grafico {
-    width: 600px;
-    height: 400px;
-    border: 1px solid black;
+    shape-rendering: crispEdges;
 }
 
 .barra {
-    fill: lightblue;
     stroke: black;
 }
 .rotulo {
-    text-anchor: end;
+    text-anchor: middle;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
+}
+
+#eixoX text{
+    font-size: 120%;
+    text-anchor: end;
+    transform: translate(-8px, 2px) rotate(-45deg)
+}
+
+#eixoY text{
+    font-size: 120%;
+}
+#grade path{
+    display: none;
+}
+#grade line {
+    stroke: #AAA;
+    stroke-dasharray: 2,2;
+}
+
+figure{
+    text-align:center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+figcaption{
+    font-size: xx-large;
+    font-weight: bold;
 }

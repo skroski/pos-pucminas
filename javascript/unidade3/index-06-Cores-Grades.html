@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="grafico.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="grafico-cores-grades.js"></script>
+   <script>
+    onload = () => {
+    let dados = [
+        {chave:'Frango', valor: 56},
+        {chave:'Carne', valor: 73},
+        {chave:'Vegetariano', valor: 20},
+        {chave:'Queijo', valor: 115},
+        {chave:'Goiabada', valor: 44},
+        {chave:'Banana', valor: 60},
+        {chave:'Calabreza', valor: 33}
+    ];
+    grafico({
+        seletor: '#grafico',
+        dados: dados,
+        largura: 600,
+        altura: 400,
+        tituloX: 'Tipos de pastéis',
+        tituloY: 'Quantidade vendida '
+    })
+    }
+   </script>
+    <title>D3JS . JavaScript</title>
+</head>
+
+<body>
+    <h1>D3JS - JavaScript</h1>
+    <svg id="grafico"></svg>
+</body>
+
+</html>

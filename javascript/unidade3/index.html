@@ -1,30 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="grafico.css">
+    <link rel="stylesheet" href="grafico.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="grafico.js"></script>
-   <script>
-    onload = () => {
-    let dados = [156, 273, 120, 115, 44, 260, 135];
-    grafico({
-        seletor: '#grafico',
-        dados: dados,
-        largura: 600,
-        altura: 400
-    })
-    }
-   </script>
+    <script>
+        const clicado = (d) => alert(d.chave + '=' + d.valor);
+        onload = () => {
+            let dados = [
+                { chave: 'Frango', valor: 56 },
+                { chave: 'Carne', valor: 73 },
+                { chave: 'Vegetariano', valor: 20 },
+                { chave: 'Queijo', valor: 115 },
+                { chave: 'Goiabada', valor: 44 },
+                { chave: 'Banana', valor: 60 },
+                { chave: 'Calabreza', valor: 33 },
+                { chave: 'Pizza', valor: 33 },
+                { chave: 'Bacalhau', valor: 33 }
+            ];
+            let graf = new Grafico({
+                seletor: '#grafico',
+                dados: dados,
+                largura: 600,
+                altura: 400,
+                tituloX: 'Tipos de pastéis',
+                tituloY: 'Quantidade vendida ',
+                callback: clicado
+            });
+
+            console.log(10, d3.selectAll('p').data(['1']));
+            d3.select('body')
+   .append('p')
+   .attr('id','p1')
+   .append('p')
+   .attr('id','p2')
+
+            crescente.onclick = () => {
+                dados.sort((a, b) => a.valor - b.valor);
+                graf.atualize(dados)
+            };
+            decrescente.onclick = () => {
+                dados.sort((a, b) => b.valor - a.valor);
+                graf.atualize(dados)
+            };
+            alfabetica.onclick = () => {
+                dados.sort((a, b) =>a.chave.localeCompare(b.chave));
+                graf.atualize(dados);
+            };
+        }
+    </script>
     <title>D3JS . JavaScript</title>
 </head>
 
 <body>
-    <h1>D3JS - JavaScript</h1>
+    <figure>
+    <figcaption>Vendas - Receitas</figcaption>
     <svg id="grafico"></svg>
+    <p>
+        <button id="crescente"> Ordem Crescente</button>
+        <button id="decrescente"> Ordem Decrescente</button>
+        <button id="alfabetica"> Ordem Alfabética</button>
+
+    </p>
+
+    <p id="p1">Parágrafo 1</p>
+<p id="p2">Parágrafo 2</p>
+<p id="p3">Parágrafo 3</p>
+</figure>
 </body>
 
 </html>
