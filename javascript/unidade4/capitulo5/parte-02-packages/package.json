@@ -1,0 +1,17 @@
+{
+  "name": "meuapp",
+  "version": "1.0.0",
+  "description": "App Javascript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Skroski",
+  "license": "ISC",
+  "dependencies": {
+    "translate": "^0.7.0",
+    "uuid": "^8.3.2"
+  }
+}
