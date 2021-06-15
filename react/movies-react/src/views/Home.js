@@ -17,9 +17,9 @@ export const Home = () => {
     return (
     <div>
         <div className="container">
-            <div className="row align-items-start">
+            <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-2 gap-4">
                 {movies.map((movie) => (
-                     <div key={movie.id} className="col-3">
+                     <div key={movie.id} className="items-center">
                      <Movie movie={movie}/>
                   </div>
                 ))}
