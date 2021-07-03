@@ -9,6 +9,7 @@ export const MovieDetail = (props) =>  {
     };
     useEffect(() => {
         getMovie();
+        // eslint-disable-next-line 
     }, []);
 return (
    <section className="movie-detail">
