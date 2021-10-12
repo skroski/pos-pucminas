@@ -1,0 +1,19 @@
+{
+  "name": "demo-expressjs",
+  "version": "1.0.0",
+  "description": "Demo de uma API com Express JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Express",
+    "js",
+    "API"
+  ],
+  "author": "Daniel Skroski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

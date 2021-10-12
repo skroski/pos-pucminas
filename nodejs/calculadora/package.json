@@ -1,0 +1,16 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "description": "Calculadora Pós PucMinas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "exercicio",
+    "calculadora",
+    "pos"
+  ],
+  "author": "Daniel Skroski",
+  "license": "ISC"
+}
