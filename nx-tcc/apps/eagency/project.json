@@ -1,0 +1,71 @@
+{
+  "root": "apps/eagency",
+  "sourceRoot": "apps/eagency/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/eagency",
+        "index": "apps/eagency/src/index.html",
+        "baseHref": "/",
+        "main": "apps/eagency/src/main.tsx",
+        "polyfills": "apps/eagency/src/polyfills.ts",
+        "tsConfig": "apps/eagency/tsconfig.app.json",
+        "assets": ["apps/eagency/src/favicon.ico", "apps/eagency/src/assets"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/eagency/src/environments/environment.ts",
+              "with": "apps/eagency/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "eagency:build",
+        "hmr": true,
+        "proxyConfig": "apps/eagency/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "eagency:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/eagency/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/eagency"],
+      "options": {
+        "jestConfig": "apps/eagency/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

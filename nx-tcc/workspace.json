@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "eagency": "apps/eagency",
+    "eagency-e2e": "apps/eagency-e2e",
+    "shared-types": "libs/shared-types",
+    "ui-header": "libs/ui-header"
+  }
+}
