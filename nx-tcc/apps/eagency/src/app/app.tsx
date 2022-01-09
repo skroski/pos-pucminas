@@ -1,11 +1,13 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect, useCallback} from "react";
 import styled from 'styled-components';
 import NxWelcome from './nx-welcome';
 
 import { Route, Link } from 'react-router-dom';
 import { PageTitle } from '@nx-tcc/ui-header';
+import { UiSidebar } from '@nx-tcc/ui-sidebar';
 
 import axios from 'axios';
+//import { Service } from "@nx-tcc/api-interface";
 import { Services } from '@nx-tcc/shared-types'
 
 const StyledApp = styled.div`
@@ -13,21 +15,27 @@ const StyledApp = styled.div`
 `;
 
 export function App() {
-  const [service, setService] = useState({message: 'SetService...'});
-  const [apiResponse, setApiResponse] = useState({message: 'Loading...'});
+  
+  const [service, setService] = useState<Services[]>([]);
+  //const [apiResponse, setApiResponse] = useState({message: 'Loading...'});
+
+  const getServices = useCallback(async () => {
+    const resp = await axios.get<Services[]>('http://localhost:3000/services')
+    setService(resp.data)
+    console.log(resp)
+  }, [])
  
   useEffect(() => {
-    fetch('/api')
-    .then(res => res.json())
-    .then(setApiResponse);
+    getServices()
   }, []);
 
   return (
     <StyledApp>
        <PageTitle/>
+       <UiSidebar/>
       <main>
         <p>
-          { apiResponse.message}
+          { JSON.stringify(service) }
         </p>
       </main>
       <NxWelcome title="eagency" />

@@ -2,9 +2,11 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-interface": "libs/api-interface",
     "eagency": "apps/eagency",
     "eagency-e2e": "apps/eagency-e2e",
     "shared-types": "libs/shared-types",
-    "ui-header": "libs/ui-header"
+    "ui-header": "libs/ui-header",
+    "ui-sidebar": "libs/ui-sidebar"
   }
 }

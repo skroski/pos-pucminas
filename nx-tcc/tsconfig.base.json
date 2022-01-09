@@ -15,8 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-tcc/api-interface": ["libs/api-interface/src/index.ts"],
       "@nx-tcc/shared-types": ["libs/shared-types/src/index.ts"],
-      "@nx-tcc/ui-header": ["libs/ui-header/src/index.ts"]
+      "@nx-tcc/ui-header": ["libs/ui-header/src/index.ts"],
+      "@nx-tcc/ui-sidebar": ["libs/ui-sidebar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
