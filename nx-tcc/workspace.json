@@ -1,11 +1,15 @@
 {
   "version": 2,
+  
   "projects": {
     "api": "apps/api",
     "api-interface": "libs/api-interface",
+    "button": "libs/button",
     "eagency": "apps/eagency",
     "eagency-e2e": "apps/eagency-e2e",
     "shared-types": "libs/shared-types",
+    "storybook": "libs/storybook",
+    "storybook-e2e": "apps/storybook-e2e",
     "ui-header": "libs/ui-header",
     "ui-sidebar": "libs/ui-sidebar"
   }

@@ -16,7 +16,10 @@
         "polyfills": "apps/eagency/src/polyfills.ts",
         "tsConfig": "apps/eagency/tsconfig.app.json",
         "assets": ["apps/eagency/src/favicon.ico", "apps/eagency/src/assets"],
-        "styles": [],
+        "styles": [
+          "apps/eagency/src/styles.scss",
+          "apps/eagency/src/app/tailwind.css"
+        ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -49,6 +52,14 @@
           "buildTarget": "eagency:build:production",
           "hmr": false
         }
+      }
+    },
+    "build-tailwind-css": {
+      "builder": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx tailwindcss-cli@latest build src/styles.scss -o src/app/tailwind.css",
+        "cwd": "apps/eagency"
       }
     },
     "lint": {

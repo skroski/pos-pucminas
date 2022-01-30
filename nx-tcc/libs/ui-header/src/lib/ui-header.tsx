@@ -1,17 +1,18 @@
-import styled from 'styled-components';
 
+import { PageTitle } from '..';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import '../../../../apps/eagency/src/app/tailwind.css'
 /* eslint-disable-next-line */
 export interface UiHeaderProps {}
 
-const StyledUiHeader = styled.div`
-  color: pink;
-`;
 
 export function UiHeader(props: UiHeaderProps) {
   return (
-    <StyledUiHeader>
-      <h1>Welcome to UiHeader!</h1>
-    </StyledUiHeader>
+    <>
+      <h1 className="text-red-700">Duplo D - Consiliadora de Projetos</h1>
+
+      <PageTitle/>
+    </>
   );
 }
 
