@@ -1,0 +1,19 @@
+{% extends "application.html" %}
+{% block html_atribs %} lang="pt-BR" {% endblock %}
+{% block title %} Update {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="page=header">
+        <h1>Atualizar</h1>
+    </div>
+
+    <form class="form-inline" action="/update/{{task.id}}" method="POST">
+        <div class="form-group">
+            <label for="task">Tarefa:</label>
+            <input type="text" class="form-control" id="description" name="description" value="{{task.description}}">
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+            <a class="btn btn-danger" href="/">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -26,12 +26,13 @@ export function App() {
   return (
     <>
       <UiHeader />
+      <section className="grid grid-cols-2">
       <UiSidebar />
       <main>
         {service.map (s => {
           return(
             <>
-           <h2>{s.name}</h2> 
+           <h2 className="text-xl text-red-800">{s.name}</h2> 
            <h3>{s.price}</h3>
            </>
             )
@@ -40,7 +41,7 @@ export function App() {
         <p>{JSON.stringify(service)}</p>
        
       </main>
-
+      </section>
       <div role="navigation">
         <ul>
           <li>
